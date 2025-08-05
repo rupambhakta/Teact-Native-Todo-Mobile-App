@@ -1,11 +1,15 @@
+import useTheme from "@/hooks/useTheme";
 import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
+  const {toggleDarkMode} = useTheme();
   return (
     <View style={style.container}>
       <Text>This will be my first react native </Text>
-      <Link href={"/about"}>Goto</Link>
+      <TouchableOpacity onPress={toggleDarkMode}>
+        <Text>Toggle the mode</Text>
+      </TouchableOpacity>
     </View>
   );
 }
